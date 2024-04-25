@@ -41,149 +41,179 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 214, 214, 214),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                const Color.fromARGB(255, 97, 226, 255).withOpacity(0.6),
-                const Color.fromARGB(255, 152, 245, 255).withOpacity(0.6),
-                const Color.fromARGB(255, 62, 255, 249).withOpacity(0.6),
-                const Color.fromARGB(255, 139, 255, 247).withOpacity(0.6),
-              ],
+        backgroundColor: const Color.fromARGB(255, 214, 214, 214),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  const Color.fromARGB(255, 97, 226, 255).withOpacity(0.6),
+                  const Color.fromARGB(255, 152, 245, 255).withOpacity(0.6),
+                  const Color.fromARGB(255, 62, 255, 249).withOpacity(0.6),
+                  const Color.fromARGB(255, 139, 255, 247).withOpacity(0.6),
+                ],
+              ),
+            ),
+            child: const Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    "COMMUNITY",
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "SKILL PARK",
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
             ),
           ),
-          child: const Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 30,
-                ),
-                Text(
-                  "COMMUNITY",
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  "SKILL PARK",
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                icon: const FaIcon(FontAwesomeIcons.barsStaggered),
+              );
+            },
           ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const FaIcon(FontAwesomeIcons.bell),
+            )
+          ],
         ),
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              icon: const FaIcon(FontAwesomeIcons.barsStaggered),
-            );
-          },
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const FaIcon(FontAwesomeIcons.bell),
-          )
-        ],
-      ),
-      drawer: drawer(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                const Color.fromARGB(255, 97, 226, 255).withOpacity(0.6),
-                const Color.fromARGB(255, 152, 245, 255).withOpacity(0.6),
-                const Color.fromARGB(255, 62, 255, 249).withOpacity(0.6),
-                const Color.fromARGB(255, 139, 255, 247).withOpacity(0.6),
-              ],
+        drawer: drawer(),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 0),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  const Color.fromARGB(255, 97, 226, 255).withOpacity(0.6),
+                  const Color.fromARGB(255, 152, 245, 255).withOpacity(0.6),
+                  const Color.fromARGB(255, 62, 255, 249).withOpacity(0.6),
+                  const Color.fromARGB(255, 139, 255, 247).withOpacity(0.6),
+                ],
+              ),
             ),
-          ),
-          height: MediaQuery.of(context).size.height,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      contentPadding: const EdgeInsets.symmetric(
-                          vertical: 3, horizontal: 15),
-                      fillColor: Colors.white,
-                      hintText: "Search...",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: BorderSide.none,
-                      ),
-                      suffixIcon: const Padding(
-                        padding: EdgeInsets.only(right: 8.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.search),
-                          ],
+            height: MediaQuery.of(context).size.height,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 3, horizontal: 15),
+                        fillColor: Colors.white,
+                        hintText: "Search...",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide.none,
+                        ),
+                        suffixIcon: const Padding(
+                          padding: EdgeInsets.only(right: 8.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.search),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                FutureBuilder<List<Batch>>(
-                  future: api.fetchData(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      log("1");
-                      return SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.80,
-                          child:
-                              const Center(child: CircularProgressIndicator()));
-                    } else if (snapshot.hasError) {
-                      log("2");
-                      return Text('Error: ${snapshot.error}');
-                    } else {
-                      log("3");
-                      if (snapshot.data == null) {
-                        log("Data is null");
-                        return const Text("No data available");
+                  FutureBuilder<List<Batch>>(
+                    future: api.fetchData(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        log("1");
+                        return SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.80,
+                            child: const Center(
+                                child: CircularProgressIndicator()));
+                      } else if (snapshot.hasError) {
+                        log("2");
+                        return Text('Error: ${snapshot.error}');
+                      } else {
+                        log("3");
+                        if (snapshot.data == null) {
+                          log("Data is null");
+                          return const Text("No data available");
+                        }
+                        final batches = snapshot.data!;
+                        if (batches.isEmpty) {
+                          log("Empty data");
+                          return const Text("No data available");
+                        }
+                        return Container(
+                          height: MediaQuery.of(context).size.height,
+                          padding: const EdgeInsets.only(bottom: 200),
+                          child: ListView.builder(
+                            physics: const AlwaysScrollableScrollPhysics(
+                                parent: BouncingScrollPhysics()),
+                            itemCount: batches.length,
+                            itemBuilder: (context, index) {
+                              final batch = batches[index];
+                              return card(context, batch);
+                            },
+                          ),
+                        );
                       }
-                      final batches = snapshot.data!;
-                      if (batches.isEmpty) {
-                        log("Empty data");
-                        return const Text("No data available");
-                      }
-                      return Container(
-                        height: MediaQuery.of(context).size.height,
-                        padding: const EdgeInsets.only(bottom: 200),
-                        child: ListView.builder(
-                          physics: const AlwaysScrollableScrollPhysics(
-                              parent: BouncingScrollPhysics()),
-                          itemCount: batches.length,
-                          itemBuilder: (context, index) {
-                            final batch = batches[index];
-                            return card(context, batch);
-                          },
-                        ),
-                      );
-                    }
-                  },
-                ),
-              ],
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      ),
-    );
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white54,
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.redAccent,
+                ),
+                label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person,
+                  color: Colors.black,
+                ),
+                label: 'Settings'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.stacked_bar_chart_outlined,
+                  color: Colors.black,
+                ),
+                label: 'Settings'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.report,
+                  color: Colors.black,
+                ),
+                label: 'Settings'),
+          ],
+          // currentIndex: _selectedIndex,
+          // onTap: _onItemTapped,
+        ));
   }
 
   Drawer drawer() {
